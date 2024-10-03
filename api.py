@@ -12,4 +12,4 @@ class HelloWorld(Resource):
 
 
 
-api.add_resource(HelloWorld, '/')
+api.add_resource(HelloWorld, '/hello')
