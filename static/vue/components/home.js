@@ -8,7 +8,9 @@ const home = Vue.component("home", {
       rowCount: 1000,
       isGenerating: false,
       error: null,
-      rowCountError: null
+      rowCountError: null,
+      token: localStorage.getItem("auth-token"),
+
     };
   },
   methods: {
@@ -27,6 +29,8 @@ const home = Vue.component("home", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "Authentication-Token": this.token,
+
           },
           body: JSON.stringify({
             dataset: this.selectedDataset,

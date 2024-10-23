@@ -14,6 +14,7 @@ from docx.shared import Inches
 import io
 from openpyxl import Workbook
 from openpyxl.utils.dataframe import dataframe_to_rows
+from flask_security import auth_required
 #================================================output fields=======================================================
 
 
@@ -180,6 +181,7 @@ def generate_pci_data(count):
     return data
 
 class EmployeeAPI(Resource):
+    @auth_required('token')
     def post(self):
         args = input_parser.parse_args()
         dataset = args['dataset']
